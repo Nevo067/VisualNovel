@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bce604fb5cf3c543b34f3c10eaff9f3, type: 3}
+  m_Name: Moi
+  m_EditorClassIdentifier: 
+  nameCharacter: Moi
+  color: {r: 0, g: 0.5849056, b: 0.17444557, a: 1}
