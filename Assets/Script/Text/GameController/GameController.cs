@@ -42,10 +42,10 @@ public class GameController : MonoBehaviour
         textBarController.EraseText();
         textBarController.Hide();
         backgroundController.EraseBackground();
-        textBarController.PlayNextScene();
         yield return new WaitForSeconds(1f);
         textBarController.Show();
         yield return new WaitForSeconds(1f);
         textBarController.PlayNextSentence();
     }
+
 }

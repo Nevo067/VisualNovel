@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed936e9d8401f044be0551ca1360dd4, type: 3}
   m_Name: TestScene
   m_EditorClassIdentifier: 
+  listSentence:
+  - speaker: {fileID: 11400000, guid: 9b1befff33ae4834c99c703d3f6c2b10, type: 2}
+    text: boom
   background: {fileID: 0}
   nextScene: {fileID: 0}

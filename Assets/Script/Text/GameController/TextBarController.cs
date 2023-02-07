@@ -55,21 +55,21 @@ public class TextBarController : MonoBehaviour
     {
         if(StateTextBar.COMPLETED == state)
         {
-            Debug.Log(sentenceIndex);
+
             
             if (IsLastSentence())
             {
-                sentenceIndex = 0;
-            }
-            else 
-            {
                 
-                sentenceIndex++;
-                PlaySentence();
-
+                sentenceIndex = 0;
+                Debug.Log(sentenceIndex);
+                PlayNextScene();
+                
             }
-            
-            
+            Debug.Log(currentScene.nextScene.name);
+            PlaySentence();
+            sentenceIndex++;
+
+
         }
        
     }
