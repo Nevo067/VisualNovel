@@ -15,5 +15,7 @@ MonoBehaviour:
   listSentence:
   - speaker: {fileID: 11400000, guid: 4589cd0a91eba6542be0467c6835c663, type: 2}
     text: Bonjour Bienvenue dans le jeu
+  - speaker: {fileID: 11400000, guid: 4589cd0a91eba6542be0467c6835c663, type: 2}
+    text: Voici le jeu
   background: {fileID: 0}
   nextScene: {fileID: 0}

@@ -41,6 +41,26 @@ public class TextBarController : MonoBehaviour
         StartCoroutine(TypeText(currentScene.listSentence[sentenceIndex].text));
         
     }
+    /// <summary>
+    /// Play the next sentence and change sentenceIndex
+    /// </summary>
+    public void PlayNextSentence()
+    {
+        if(StateTextBar.COMPLETED == state)
+        {
+            if(!IsLastSentence())
+            {
+                sentenceIndex = 0;
+            }
+            else 
+            {
+                sentenceIndex++;
+            }
+            
+            PlaySentence();
+        }
+       
+    }
     private IEnumerator TypeText(string text)
     {
         barText.text = "";
@@ -63,5 +83,9 @@ public class TextBarController : MonoBehaviour
         }
 
 
+    }
+    public bool IsLastSentence() 
+    {
+        return sentenceIndex <= currentScene.listSentence.Count;
     }
 }

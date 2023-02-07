@@ -1,0 +1,65 @@
+{
+    "name": "Player1",
+    "maps": [
+        {
+            "name": "Talk",
+            "id": "c221f11e-a0a2-417c-a40b-b717986ec28a",
+            "actions": [
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "38743f50-c965-4686-9520-8827be1421c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "f090c964-057b-4ca9-bdee-359c046bad40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "79d6c286-228a-4438-8efe-14baf8b40cc6",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15bf74db-340e-41ec-b89b-765f899c9ec9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7457a1ee-9a22-41e1-95c0-6b0f4f002e75",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
