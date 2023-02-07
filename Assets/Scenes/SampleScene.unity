@@ -639,8 +639,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barText: {fileID: 1910004574}
   characterText: {fileID: 644756859}
+  bar: {fileID: 1674065807}
   currentScene: {fileID: 11400000, guid: 37b4c711d39d96f47b6eaea75663637b, type: 2}
   currentSpeaker: {fileID: 0}
+  HIDE_TRIGGER: IsHide
 --- !u!1 &762936477
 GameObject:
   m_ObjectHideFlags: 0

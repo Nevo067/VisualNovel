@@ -24,13 +24,28 @@ public class GameController : MonoBehaviour
     //Input
     public void OnAction(InputValue input)
     {
-        textBarController.PlayNextSentence();
+        
         if (textBarController.IsLastSentence())
         {
 
-            backgroundController.EraseBackground();
+            StartCoroutine(ChangeScene());
+        }
+        else
+        {
+            textBarController.PlayNextSentence();
         }
         
         
+    }
+    public IEnumerator ChangeScene()
+    {
+        textBarController.EraseText();
+        textBarController.Hide();
+        backgroundController.EraseBackground();
+        textBarController.PlayNextScene();
+        yield return new WaitForSeconds(1f);
+        textBarController.Show();
+        yield return new WaitForSeconds(1f);
+        textBarController.PlayNextSentence();
     }
 }

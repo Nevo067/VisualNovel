@@ -7,12 +7,17 @@ public class TextBarController : MonoBehaviour
 {
     public TextMeshProUGUI barText;
     public TextMeshProUGUI characterText;
+    public GameObject bar;
     // Start is called before the first frame update
+
+    private Animator animator;
 
     private int sentenceIndex = 0;
     public StoryScene currentScene;
     public Speaker currentSpeaker;
     private StateTextBar state = StateTextBar.COMPLETED;
+
+    public string HIDE_TRIGGER = "IsHide";
     public enum StateTextBar
     {
         PLAYING,COMPLETED
@@ -21,7 +26,9 @@ public class TextBarController : MonoBehaviour
     void Start()
     {
         //StartCoroutine(TypeText(currentScene.listSentence[sentenceIndex].text));
-        PlaySentence();
+        animator = bar.GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -48,16 +55,21 @@ public class TextBarController : MonoBehaviour
     {
         if(StateTextBar.COMPLETED == state)
         {
-            if(!IsLastSentence())
+            Debug.Log(sentenceIndex);
+            
+            if (IsLastSentence())
             {
                 sentenceIndex = 0;
             }
             else 
             {
+                
                 sentenceIndex++;
+                PlaySentence();
+
             }
             
-            PlaySentence();
+            
         }
        
     }
@@ -84,8 +96,31 @@ public class TextBarController : MonoBehaviour
 
 
     }
+    /// <summary>
+    /// Return True if it is the last sentence of sentence's list
+    /// </summary>
+    /// <returns></returns>
     public bool IsLastSentence() 
     {
-        return sentenceIndex <= currentScene.listSentence.Count;
+        return sentenceIndex >= currentScene.listSentence.Count;
+    }
+
+    public void Hide()
+    {
+        animator.SetBool(HIDE_TRIGGER, true);
+        Debug.Log("DO");
+    }
+    public void Show()
+    {
+        animator.SetBool(HIDE_TRIGGER, false);
+    }
+    public void EraseText()
+    {
+        barText.text = "";
+    }
+
+    public void PlayNextScene()
+    {
+        currentScene = currentScene.nextScene;
     }
 }
