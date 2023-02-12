@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "NewStoryScene", menuName = "Data/New Story Scene")]
-public class StoryScene : ScriptableObject
+public class StoryScene : GameScene
 {
     public List<Sentence> listSentence;
     public Sprite background;

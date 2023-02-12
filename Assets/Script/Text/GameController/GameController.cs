@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 
     public enum State
     {
-        IDLE, ANIMATE
+        IDLE, ANIMATE, CHOICE
     }
     //Input
     public void OnAction(InputValue input)
@@ -33,9 +33,17 @@ public class GameController : MonoBehaviour
         
         if (state == State.IDLE && textBarController.IsLastSentence())
         {
-            textBarController.sentenceIndex = 0;
-            textBarController.PlayNextScene();
-            StartCoroutine(ChangeScene());
+            if(textBarController.currentScene is StoryScene)
+            {
+                textBarController.sentenceIndex = 0;
+                textBarController.PlayNextScene();
+                StartCoroutine(ChangeScene());
+            }
+            else if(textBarController.currentScene is ChoceStoryScene )
+            {
+
+            }
+            
         }
         else
         {
@@ -50,11 +58,20 @@ public class GameController : MonoBehaviour
         textBarController.EraseText();
         textBarController.Hide();
         backgroundController.EraseBackground();
-        yield return new WaitForSeconds(1f);
-        textBarController.Show();
-        yield return new WaitForSeconds(1f);
-        textBarController.PlayNextSentence();
-        state = State.IDLE;
+        if (textBarController.currentScene is StoryScene)
+        {
+            
+            yield return new WaitForSeconds(1f);
+            textBarController.Show();
+            yield return new WaitForSeconds(1f);
+            textBarController.PlayNextSentence();
+            state = State.IDLE;
+        }
+        else if(textBarController.currentScene is ChoceStoryScene)
+        {
+
+        }
+        
     }
 
 }

@@ -13,7 +13,7 @@ public class TextBarController : MonoBehaviour
     public Animator animator;
 
     public int sentenceIndex = 0;
-    public StoryScene currentScene;
+    public GameScene currentScene;
     public Speaker currentSpeaker;
     private StateTextBar state = StateTextBar.COMPLETED;
 
@@ -44,8 +44,9 @@ public class TextBarController : MonoBehaviour
     }
     public void PlaySentence()
     {
-        currentSpeaker  = currentScene.listSentence[sentenceIndex].speaker;
-        StartCoroutine(TypeText(currentScene.listSentence[sentenceIndex].text));
+        StoryScene storyScene = currentScene as StoryScene;
+        currentSpeaker  = storyScene.listSentence[sentenceIndex].speaker;
+        StartCoroutine(TypeText(storyScene.listSentence[sentenceIndex].text));
         
     }
     /// <summary>
@@ -102,7 +103,8 @@ public class TextBarController : MonoBehaviour
     /// <returns></returns>
     public bool IsLastSentence() 
     {
-        return sentenceIndex >= currentScene.listSentence.Count;
+        StoryScene storyScene = currentScene as StoryScene;
+        return sentenceIndex >= storyScene.listSentence.Count;
     }
 
     public void Hide()
@@ -123,6 +125,7 @@ public class TextBarController : MonoBehaviour
 
     public void PlayNextScene()
     {
-        currentScene = currentScene.nextScene;
+        StoryScene storyScene = currentScene as StoryScene;
+        currentScene = storyScene.nextScene;
     }
 }

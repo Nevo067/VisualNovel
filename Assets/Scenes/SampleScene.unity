@@ -510,8 +510,9 @@ GameObject:
   - component: {fileID: 575638890}
   - component: {fileID: 575638892}
   - component: {fileID: 575638891}
+  - component: {fileID: 575638893}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ChoiceBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -577,6 +578,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575638889}
   m_CullTransparentMesh: 1
+--- !u!95 &575638893
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575638889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bdd3405f39a1384c9461c862eed7588, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +891,8 @@ MonoBehaviour:
   barText: {fileID: 1910004574}
   characterText: {fileID: 644756859}
   bar: {fileID: 1674065807}
+  animator: {fileID: 1674065812}
+  sentenceIndex: 0
   currentScene: {fileID: 11400000, guid: 37b4c711d39d96f47b6eaea75663637b, type: 2}
   currentSpeaker: {fileID: 0}
   HIDE_TRIGGER: IsHide
