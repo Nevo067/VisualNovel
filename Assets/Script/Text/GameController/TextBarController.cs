@@ -10,9 +10,9 @@ public class TextBarController : MonoBehaviour
     public GameObject bar;
     // Start is called before the first frame update
 
-    private Animator animator;
+    public Animator animator;
 
-    private int sentenceIndex = 0;
+    public int sentenceIndex = 0;
     public StoryScene currentScene;
     public Speaker currentSpeaker;
     private StateTextBar state = StateTextBar.COMPLETED;
@@ -56,16 +56,16 @@ public class TextBarController : MonoBehaviour
         if(StateTextBar.COMPLETED == state)
         {
 
-            
+            /*
             if (IsLastSentence())
             {
                 
                 sentenceIndex = 0;
-                Debug.Log(sentenceIndex);
                 PlayNextScene();
                 
+                
             }
-            Debug.Log(currentScene.nextScene.name);
+            */
             PlaySentence();
             sentenceIndex++;
 
@@ -107,6 +107,8 @@ public class TextBarController : MonoBehaviour
 
     public void Hide()
     {
+        Debug.Log("BOOM");
+        Debug.Log(animator.GetBool(HIDE_TRIGGER));
         animator.SetBool(HIDE_TRIGGER, true);
         Debug.Log("DO");
     }

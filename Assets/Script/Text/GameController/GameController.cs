@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public TextBarController textBarController;
     public BackgroundController backgroundController;
 
+    private State state = State.IDLE;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +23,18 @@ public class GameController : MonoBehaviour
         
     }
 
+    public enum State
+    {
+        IDLE, ANIMATE
+    }
     //Input
     public void OnAction(InputValue input)
     {
         
-        if (textBarController.IsLastSentence())
+        if (state == State.IDLE && textBarController.IsLastSentence())
         {
-
+            textBarController.sentenceIndex = 0;
+            textBarController.PlayNextScene();
             StartCoroutine(ChangeScene());
         }
         else
@@ -39,6 +46,7 @@ public class GameController : MonoBehaviour
     }
     public IEnumerator ChangeScene()
     {
+        state = State.ANIMATE;
         textBarController.EraseText();
         textBarController.Hide();
         backgroundController.EraseBackground();
@@ -46,6 +54,7 @@ public class GameController : MonoBehaviour
         textBarController.Show();
         yield return new WaitForSeconds(1f);
         textBarController.PlayNextSentence();
+        state = State.IDLE;
     }
 
 }
