@@ -10,7 +10,8 @@ public class ChoceStoryScene : GameScene
     [System.Serializable]
     public struct ChoiceLabel
     {
-        string label;
-        StoryScene storyScene;
+        public string label;
+        public GameScene nextScene;
+        
     }
 }

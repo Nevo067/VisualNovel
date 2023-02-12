@@ -109,10 +109,9 @@ public class TextBarController : MonoBehaviour
 
     public void Hide()
     {
-        Debug.Log("BOOM");
-        Debug.Log(animator.GetBool(HIDE_TRIGGER));
+        
         animator.SetBool(HIDE_TRIGGER, true);
-        Debug.Log("DO");
+        
     }
     public void Show()
     {

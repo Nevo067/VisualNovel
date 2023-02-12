@@ -297,8 +297,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -381,6 +381,7 @@ MonoBehaviour:
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   textMesh: {fileID: 0}
   nextStoryScene: {fileID: 0}
+  choiceController: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.4745098}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -893,7 +894,7 @@ MonoBehaviour:
   bar: {fileID: 1674065807}
   animator: {fileID: 1674065812}
   sentenceIndex: 0
-  currentScene: {fileID: 11400000, guid: 37b4c711d39d96f47b6eaea75663637b, type: 2}
+  currentScene: {fileID: 11400000, guid: ca3ea03ce593d974da90b15cd2cac0fe, type: 2}
   currentSpeaker: {fileID: 0}
   HIDE_TRIGGER: IsHide
 --- !u!1 &762936477
@@ -1029,6 +1030,7 @@ Transform:
   - {fileID: 742014594}
   - {fileID: 1617215848}
   - {fileID: 1801112170}
+  - {fileID: 1303420602}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1065,6 +1067,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1303420601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303420602}
+  - component: {fileID: 1303420603}
+  m_Layer: 0
+  m_Name: GameChoiceController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1303420602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303420601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 766301698}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303420603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303420601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9805510de4dd849a299560c3a79cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1617215849}
+  HIDE_TRIGGER: IsHide
+  ChoiceBar: {fileID: 575638889}
+  animator: {fileID: 575638893}
+  textsChoice:
+  - {fileID: 274868767}
+  - {fileID: 1960345408}
 --- !u!1 &1464952030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBarController: {fileID: 742014595}
   backgroundController: {fileID: 1801112171}
+  gameChoiceController: {fileID: 1303420603}
 --- !u!114 &1617215850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1674065808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1656,8 +1710,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1740,6 +1794,7 @@ MonoBehaviour:
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   textMesh: {fileID: 0}
   nextStoryScene: {fileID: 0}
+  choiceController: {fileID: 0}
 --- !u!1 &2016510276
 GameObject:
   m_ObjectHideFlags: 0

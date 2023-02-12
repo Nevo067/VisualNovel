@@ -7,8 +7,15 @@ public class GameController : MonoBehaviour
 {
     public TextBarController textBarController;
     public BackgroundController backgroundController;
+    public GameChoiceController gameChoiceController;
 
     private State state = State.IDLE;
+
+    public GameScene currentScene 
+    {
+        get { return textBarController.currentScene; }
+        set { textBarController.currentScene = value; } 
+    }
 
 
     // Start is called before the first frame update
@@ -30,37 +37,60 @@ public class GameController : MonoBehaviour
     //Input
     public void OnAction(InputValue input)
     {
+
+        MakeAction();
         
+        
+    }
+    public void MakeAction()
+    {
         if (state == State.IDLE && textBarController.IsLastSentence())
         {
-            if(textBarController.currentScene is StoryScene)
+            Debug.Log(textBarController.currentScene.nextScene as StoryScene is StoryScene);
+            if (textBarController.currentScene.nextScene as StoryScene is StoryScene)
             {
+                Debug.Log("BOOM");
                 textBarController.sentenceIndex = 0;
                 textBarController.PlayNextScene();
                 StartCoroutine(ChangeScene());
             }
-            else if(textBarController.currentScene is ChoceStoryScene )
+            else if (textBarController.currentScene.nextScene as ChoceStoryScene is ChoceStoryScene)
             {
-
+                
+                textBarController.currentScene = textBarController.currentScene.nextScene;
+                Debug.Log(textBarController.currentScene);
+                textBarController.sentenceIndex = 0;
+                StartCoroutine(ChangeScene());
             }
+
+        }
+        else if(state == State.CHOICE)
+        {
             
+            StartCoroutine(ChangeScene());
         }
         else
         {
             textBarController.PlayNextSentence();
         }
-        
-        
     }
     public IEnumerator ChangeScene()
     {
-        state = State.ANIMATE;
+        
         textBarController.EraseText();
         textBarController.Hide();
         backgroundController.EraseBackground();
+        if(state == State.CHOICE)
+        {
+            state = State.ANIMATE;
+            gameChoiceController.Hide();
+            yield return new WaitForSeconds(1f);
+            state = State.IDLE;
+
+        }
         if (textBarController.currentScene is StoryScene)
         {
-            
+            state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
             textBarController.Show();
             yield return new WaitForSeconds(1f);
@@ -69,7 +99,13 @@ public class GameController : MonoBehaviour
         }
         else if(textBarController.currentScene is ChoceStoryScene)
         {
-
+            state = State.ANIMATE;
+            ChoceStoryScene choice = textBarController.currentScene as ChoceStoryScene;
+            Debug.Log(choice);
+            gameChoiceController.Setup(choice);
+            gameChoiceController.Show();
+            yield return new WaitForSeconds(1f);
+            state = State.CHOICE;
         }
         
     }

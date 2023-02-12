@@ -6,16 +6,21 @@ using UnityEngine.EventSystems;
 
 public class GameChoiceLabelController : MonoBehaviour, IPointerEnterHandler,IPointerDownHandler
 {
+    private bool isClickable;
     // Start is called before the first frame update
     public Color defaultColor;
     public Color hoverColor;
     public TextMeshProUGUI textMesh;
-    public StoryScene nextStoryScene;
+    public GameScene nextStoryScene;
+    public GameChoiceController choiceController;
+
+    public bool IsClickable { get => isClickable; set => isClickable = value; }
 
     void Start()
     {
         textMesh = this.GetComponent<TextMeshProUGUI>();
         textMesh.color = defaultColor;
+        isClickable = true;
     }
 
     // Update is called once per frame
@@ -25,7 +30,11 @@ public class GameChoiceLabelController : MonoBehaviour, IPointerEnterHandler,IPo
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Click");
+        if(isClickable)
+        {
+            choiceController.ValidChoice(nextStoryScene);
+        }
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
