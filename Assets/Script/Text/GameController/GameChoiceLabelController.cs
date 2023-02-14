@@ -21,6 +21,7 @@ public class GameChoiceLabelController : MonoBehaviour, IPointerEnterHandler,IPo
         textMesh = this.GetComponent<TextMeshProUGUI>();
         textMesh.color = defaultColor;
         isClickable = true;
+        choiceController = GameObject.FindObjectOfType<GameChoiceController>();
     }
 
     // Update is called once per frame
@@ -28,18 +29,19 @@ public class GameChoiceLabelController : MonoBehaviour, IPointerEnterHandler,IPo
     {
         
     }
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(isClickable)
-        {
-            choiceController.ValidChoice(nextStoryScene);
-        }
-        
-    }
+   
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (isClickable)
+        {
+            Debug.Log("click");
+            choiceController.ValidChoice(nextStoryScene);
+        }
+        else
+        {
+            Debug.Log("cant clickable");
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

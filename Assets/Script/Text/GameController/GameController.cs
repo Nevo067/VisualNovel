@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
     }
     public void MakeAction()
     {
+        Debug.Log(state);
         if (state == State.IDLE && textBarController.IsLastSentence())
         {
             Debug.Log(textBarController.currentScene.nextScene as StoryScene is StoryScene);
@@ -77,11 +78,13 @@ public class GameController : MonoBehaviour
     public IEnumerator ChangeScene()
     {
         
-        textBarController.EraseText();
-        textBarController.Hide();
-        backgroundController.EraseBackground();
+        
         if(state == State.CHOICE)
         {
+            textBarController.EraseText();
+            textBarController.Hide();
+            backgroundController.EraseBackground();
+            yield return new WaitForSeconds(1f);
             state = State.ANIMATE;
             gameChoiceController.Hide();
             yield return new WaitForSeconds(1f);
@@ -90,6 +93,9 @@ public class GameController : MonoBehaviour
         }
         if (textBarController.currentScene is StoryScene)
         {
+            textBarController.EraseText();
+            textBarController.Hide();
+            backgroundController.EraseBackground(); 
             state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
             textBarController.Show();

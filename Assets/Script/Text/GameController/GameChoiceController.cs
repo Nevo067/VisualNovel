@@ -8,6 +8,7 @@ public class GameChoiceController : MonoBehaviour
     public GameController gameController;
 
     public string HIDE_TRIGGER = "IsHide";
+    string ANIMATED_TRIGGER = "IsAnimated";
     public GameObject ChoiceBar;
     public Animator animator;
     public List<TextMeshProUGUI> textsChoice;
@@ -28,7 +29,9 @@ public class GameChoiceController : MonoBehaviour
     }
     public void Show()
     {
+        animator.SetBool(ANIMATED_TRIGGER, true);
         animator.SetBool(HIDE_TRIGGER, false);
+        
     }
     public void Setup(ChoceStoryScene choice)
     {

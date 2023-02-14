@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8601332c41c88d8448205930358a0f92, type: 3}
   m_Name: Choice
   m_EditorClassIdentifier: 
+  nextScene: {fileID: 0}
   choice:
   - label: Oui
-    storyScene: {fileID: 11400000, guid: 07c01b07128936e42a1f660478acb30a, type: 2}
+    nextScene: {fileID: 11400000, guid: 07c01b07128936e42a1f660478acb30a, type: 2}
   - label: Non
-    storyScene: {fileID: 11400000, guid: 66b8683ac46af234aa54ca1edbfc664c, type: 2}
+    nextScene: {fileID: 11400000, guid: 66b8683ac46af234aa54ca1edbfc664c, type: 2}
