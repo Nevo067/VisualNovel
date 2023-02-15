@@ -46,7 +46,7 @@ public class GameChoiceLabelController : MonoBehaviour, IPointerEnterHandler,IPo
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Click");
+       
     }
 
     

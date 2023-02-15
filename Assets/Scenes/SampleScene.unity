@@ -894,7 +894,7 @@ MonoBehaviour:
   bar: {fileID: 1674065807}
   animator: {fileID: 1674065812}
   sentenceIndex: 0
-  currentScene: {fileID: 11400000, guid: ca3ea03ce593d974da90b15cd2cac0fe, type: 2}
+  currentScene: {fileID: 11400000, guid: 7fdd5ee96cf700e4d8602684b3eed7f3, type: 2}
   currentSpeaker: {fileID: 0}
   HIDE_TRIGGER: IsHide
 --- !u!1 &762936477
@@ -1507,6 +1507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background:
   - {fileID: 1464952030}
+  - {fileID: 82678789}
 --- !u!1 &1910004572
 GameObject:
   m_ObjectHideFlags: 0

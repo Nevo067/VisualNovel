@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoryScene : GameScene
 {
     public List<Sentence> listSentence;
-    public Sprite background;
+    
     
     // Start is called before the first frame update
     [System.Serializable]

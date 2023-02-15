@@ -7,11 +7,17 @@ public class BackgroundController : MonoBehaviour
     public List<GameObject> background;
 
     private string ANIM_TRIGGER = "IsErase";
+    private int indexZ;
+    private int indexBackground;
+
+    public int IndexBackground { get => indexBackground; set => indexBackground = value; }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ChangeAlphaBackgroundExceptFirst();
+        indexZ = 0;
+        indexBackground = 0;
     }
 
     // Update is called once per frame
@@ -26,6 +32,7 @@ public class BackgroundController : MonoBehaviour
         {
             Animator anim = background[index].GetComponent<Animator>();
             anim.SetBool(ANIM_TRIGGER, true);
+            
         }
         else 
         {
@@ -35,6 +42,51 @@ public class BackgroundController : MonoBehaviour
     }
     public void EraseBackground()
     {
-        EraseBackground(0);
+        EraseBackground(indexBackground);
     }
+    public void ChangeAlphaBackgroundExceptFirst()
+    {
+        for (int i = 0; i < background.Count; i++)
+        {
+            if(i > 0)
+            {
+                ChangeAlphaBackground(background[i],0);
+
+            }
+        }
+    }
+    public void ShowBackground(int i)
+    {
+        indexZ -= 1;
+        background[i].GetComponent<SpriteRenderer>().sortingOrder = indexZ;
+        ChangeAlphaBackground(background[i], 1);
+       
+    }
+
+    private void ChangeAlphaBackground(GameObject backgroundChange,int alpha)
+    {
+        SpriteRenderer spriteRenderer = backgroundChange.GetComponent<SpriteRenderer>();
+        Color color = spriteRenderer.color;
+        color.a = alpha;
+        spriteRenderer.color = color;
+    }
+    /// <summary>
+    /// Find index of gifted gameobject. If it is not in background return -1
+    /// </summary>
+    /// <param name="backgroundGame"></param>
+    /// <returns></returns>
+    public int findIndex(GameObject backgroundGame)
+    {
+        int indexBackground = 0;
+        foreach (var item in background)
+        {
+            if(item.gameObject.name == backgroundGame.name)
+            {
+                return indexBackground;
+            }
+            indexBackground++;
+        }
+        return -1;
+    }
+    
 }

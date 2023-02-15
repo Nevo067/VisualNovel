@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameScene : ScriptableObject
 {
     public GameScene nextScene;
+    public int background;
 }

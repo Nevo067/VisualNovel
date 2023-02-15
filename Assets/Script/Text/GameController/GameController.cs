@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
             textBarController.EraseText();
             textBarController.Hide();
             backgroundController.EraseBackground();
+            
             yield return new WaitForSeconds(1f);
             state = State.ANIMATE;
             gameChoiceController.Hide();
@@ -95,7 +96,11 @@ public class GameController : MonoBehaviour
         {
             textBarController.EraseText();
             textBarController.Hide();
-            backgroundController.EraseBackground(); 
+            backgroundController.EraseBackground();
+            int index = textBarController.currentScene.background;
+            Debug.Log(index);
+            backgroundController.ShowBackground(index);
+            backgroundController.IndexBackground = index;
             state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
             textBarController.Show();
