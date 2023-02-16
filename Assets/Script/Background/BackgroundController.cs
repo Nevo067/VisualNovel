@@ -30,7 +30,17 @@ public class BackgroundController : MonoBehaviour
         
         if (index >= 0 && index < background.Count )
         {
+            int indexBoucle = 0;
+            foreach (var item in background)
+            {
+                if(indexBoucle != index)
+                {
+                    background[indexBoucle].GetComponent<SpriteRenderer>().sortingOrder = -100;
+                }
+                indexBoucle++;
+            }
             Animator anim = background[index].GetComponent<Animator>();
+            background[index].GetComponent<SpriteRenderer>().sortingOrder = indexZ;
             anim.SetBool(ANIM_TRIGGER, true);
             
         }
@@ -57,10 +67,12 @@ public class BackgroundController : MonoBehaviour
     }
     public void ShowBackground(int i)
     {
-        indexZ -= 1;
+        indexZ = (indexZ -1);
         background[i].GetComponent<SpriteRenderer>().sortingOrder = indexZ;
         ChangeAlphaBackground(background[i], 1);
-       
+        Animator anim = background[i].GetComponent<Animator>();
+        anim.SetBool(ANIM_TRIGGER, false);
+
     }
 
     private void ChangeAlphaBackground(GameObject backgroundChange,int alpha)

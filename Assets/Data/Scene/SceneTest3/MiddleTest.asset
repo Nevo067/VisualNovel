@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aed936e9d8401f044be0551ca1360dd4, type: 3}
-  m_Name: test
+  m_Name: MiddleTest
   m_EditorClassIdentifier: 
-  nextScene: {fileID: 11400000, guid: 7fdd5ee96cf700e4d8602684b3eed7f3, type: 2}
+  nextScene: {fileID: 11400000, guid: 70fbd99b48aec844a98a1aace10439ff, type: 2}
   background: 1
   listSentence:
-  - speaker: {fileID: 11400000, guid: 4589cd0a91eba6542be0467c6835c663, type: 2}
-    text: Bonjour Bienvenue dans le jeu
-  - speaker: {fileID: 11400000, guid: 4589cd0a91eba6542be0467c6835c663, type: 2}
-    text: Voici le jeu
+  - speaker: {fileID: 11400000, guid: 7762bf2d8edbafc4e99fbce8952a7bbe, type: 2}
+    text: Vous aller voyager dans un monde inconnu

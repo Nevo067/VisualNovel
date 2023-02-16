@@ -100,6 +100,7 @@ public class GameController : MonoBehaviour
             int index = textBarController.currentScene.background;
             Debug.Log(index);
             backgroundController.ShowBackground(index);
+            yield return new WaitForSeconds(1f);
             backgroundController.IndexBackground = index;
             state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
