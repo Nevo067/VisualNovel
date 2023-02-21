@@ -11,6 +11,8 @@ public class SpriteSwitcher : MonoBehaviour
     public Image image2;
     private Animator animator;
 
+    private string SWITCHFIRST_TRIGGER = "SwitchFirst";
+    private string SWITCHSECOND_TRIGGER = "SwitchSecond";
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -21,12 +23,12 @@ public class SpriteSwitcher : MonoBehaviour
         if (!isSwitched)
         {
             image2.sprite = sprite;
-            animator.SetTrigger("SwitchFirst");
+            animator.SetTrigger(SWITCHFIRST_TRIGGER);
         }
         else
         {
             image1.sprite = sprite;
-            animator.SetTrigger("SwitchSecond");
+            animator.SetTrigger(SWITCHSECOND_TRIGGER);
         }
         isSwitched = !isSwitched;
     }
@@ -54,4 +56,5 @@ public class SpriteSwitcher : MonoBehaviour
             return image2.sprite;
         }
     }
+    
 }

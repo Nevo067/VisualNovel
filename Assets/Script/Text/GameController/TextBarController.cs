@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TextBarController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class TextBarController : MonoBehaviour
     public Speaker currentSpeaker;
     private StateTextBar state = StateTextBar.COMPLETED;
 
+    public Dictionary<Speaker, SpriteController> sprites;
+    public GameObject spritesPrefabs;
+
     public string HIDE_TRIGGER = "IsHide";
     public enum StateTextBar
     {
@@ -26,6 +30,7 @@ public class TextBarController : MonoBehaviour
     void Start()
     {
         //StartCoroutine(TypeText(currentScene.listSentence[sentenceIndex].text));
+        sprites = new Dictionary<Speaker, SpriteController>();
         animator = bar.GetComponent<Animator>();
 
         
@@ -97,6 +102,66 @@ public class TextBarController : MonoBehaviour
 
 
     }
+    private void ActSpeaker()
+    {
+        StoryScene storyScene = currentScene as StoryScene;
+        List<StoryScene.Sentence.Action> actions = storyScene.listSentence[sentenceIndex].actions;
+        for (int i = 0; i < actions.Count; i++)
+        {
+            ActSpeaker(actions[i]);
+        }
+    }
+
+    private void ActSpeaker(StoryScene.Sentence.Action action)
+    {
+        SpriteController spriteController = null;
+
+        switch(action.type)
+        {
+            case StoryScene.Sentence.TypeAction.APPEAR:
+
+                if(!sprites.ContainsKey(action.speaker))
+                {
+                    spriteController = Instantiate(action.speaker.prefab.gameObject, spritesPrefabs.transform).GetComponent<SpriteController>();
+                    sprites.Add(action.speaker, spriteController);
+                }
+                else
+                {
+                    spriteController = sprites[action.speaker];
+                }
+                spriteController.Setup(action.speaker.sprites[action.indexSprite]);
+                spriteController.Show(action.coords);
+                break;
+
+            case StoryScene.Sentence.TypeAction.MOVE:
+                if (sprites.ContainsKey(action.speaker))
+                {
+                    spriteController = sprites[action.speaker];
+                    spriteController.Move(action.coords, action.moveSpeed);
+                }
+                break;
+
+            case StoryScene.Sentence.TypeAction.DISAPEAR:
+                if (sprites.ContainsKey(action.speaker))
+                {
+                    spriteController = sprites[action.speaker];
+                    spriteController.Hide();
+                }
+                break;
+            case StoryScene.Sentence.TypeAction.NONE:
+                if (sprites.ContainsKey(action.speaker))
+                {
+                    spriteController = sprites[action.speaker];
+                }
+                break;
+
+        }
+        if(spriteController != null)
+        {
+            spriteController.SwitchSprite(action.speaker.sprites[action.indexSprite]);
+        }
+    }
+
     /// <summary>
     /// Return True if it is the last sentence of sentence's list
     /// </summary>

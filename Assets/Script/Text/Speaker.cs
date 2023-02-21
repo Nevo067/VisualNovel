@@ -7,6 +7,8 @@ public class Speaker : ScriptableObject
 {
     public string nameCharacter;
     public Color color;
-    
+    public List<Sprite> sprites;
+    public SpriteController prefab;
+
 
 }
