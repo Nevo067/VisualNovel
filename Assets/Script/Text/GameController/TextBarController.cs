@@ -9,6 +9,7 @@ public class TextBarController : MonoBehaviour
     public TextMeshProUGUI barText;
     public TextMeshProUGUI characterText;
     public GameObject bar;
+    public GameObject parent;
     // Start is called before the first frame update
 
     public Animator animator;
@@ -18,7 +19,7 @@ public class TextBarController : MonoBehaviour
     public Speaker currentSpeaker;
     private StateTextBar state = StateTextBar.COMPLETED;
 
-    public Dictionary<Speaker, SpriteController> sprites;
+    private Dictionary<Speaker, SpriteController> sprites;
     public GameObject spritesPrefabs;
 
     public string HIDE_TRIGGER = "IsHide";
@@ -31,6 +32,7 @@ public class TextBarController : MonoBehaviour
     {
         //StartCoroutine(TypeText(currentScene.listSentence[sentenceIndex].text));
         sprites = new Dictionary<Speaker, SpriteController>();
+        Debug.Log(sprites);
         animator = bar.GetComponent<Animator>();
 
         
@@ -52,6 +54,7 @@ public class TextBarController : MonoBehaviour
         StoryScene storyScene = currentScene as StoryScene;
         currentSpeaker  = storyScene.listSentence[sentenceIndex].speaker;
         StartCoroutine(TypeText(storyScene.listSentence[sentenceIndex].text));
+        ActSpeaker();
         
     }
     /// <summary>
@@ -119,10 +122,18 @@ public class TextBarController : MonoBehaviour
         switch(action.type)
         {
             case StoryScene.Sentence.TypeAction.APPEAR:
-
+                Debug.Log(sprites);
                 if(!sprites.ContainsKey(action.speaker))
                 {
-                    spriteController = Instantiate(action.speaker.prefab.gameObject, spritesPrefabs.transform).GetComponent<SpriteController>();
+                    Transform transformNewObject = spritesPrefabs.transform;
+                    RectTransform rectTransform = spritesPrefabs.GetComponent<RectTransform>();
+                    spriteController = Instantiate(action.speaker.prefab.gameObject,spritesPrefabs.transform.position,transform.rotation,parent.transform).GetComponent<SpriteController>();
+
+                    spriteController.gameObject.GetComponent<RectTransform>().position = rectTransform.position;
+                    /*
+                    spriteController.transform.position = transformNewObject.position;
+                    spriteController.transform.rotation = transform.rotation;
+                    */
                     sprites.Add(action.speaker, spriteController);
                 }
                 else

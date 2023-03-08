@@ -10,6 +10,7 @@ public class SpriteController : MonoBehaviour
     private RectTransform rect;
 
     private string TRIGGER_SHOW = "show";
+    private string TRIGGER_HIDE = "hide";
 
     private void Awake()
     {
@@ -23,12 +24,14 @@ public class SpriteController : MonoBehaviour
     }
     public void Show(Vector2 coord)
     {
+        FalseAllAnimatorParametter();
         animator.SetBool(TRIGGER_SHOW, true);
         rect.localPosition = coord;
     }
     public void Hide()
     {
-        animator.SetBool(TRIGGER_SHOW, false);
+        FalseAllAnimatorParametter();
+        animator.SetBool(TRIGGER_HIDE, true);
     }
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,13 @@ public class SpriteController : MonoBehaviour
     void Update()
     {
 
+    }
+    public void FalseAllAnimatorParametter()
+    {
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.SetBool(parameter.name, false);
+        }
     }
 
     /// <summary>
