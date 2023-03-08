@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour
 {
     public List<GameObject> background;
+    public SwitchBackground switchBackground;
 
     private string ANIM_TRIGGER = "IsErase";
     private int indexZ;
@@ -18,6 +19,7 @@ public class BackgroundController : MonoBehaviour
         ChangeAlphaBackgroundExceptFirst();
         indexZ = 0;
         indexBackground = 0;
+        switchBackground = this.GetComponent<SwitchBackground>();
     }
 
     // Update is called once per frame
@@ -100,5 +102,12 @@ public class BackgroundController : MonoBehaviour
         }
         return -1;
     }
+
+    //ReworkBackground
+    public void SwitchBackground(Sprite sprite)
+    {
+        switchBackground.SwitchImage(sprite);
+    }
+
     
 }

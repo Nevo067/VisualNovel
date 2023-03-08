@@ -96,12 +96,18 @@ public class GameController : MonoBehaviour
         {
             textBarController.EraseText();
             textBarController.Hide();
+            /*
+            Rework Background
             backgroundController.EraseBackground();
             int index = textBarController.currentScene.background;
             Debug.Log(index);
+            
+            
             backgroundController.ShowBackground(index);
             yield return new WaitForSeconds(1f);
             backgroundController.IndexBackground = index;
+            */
+            backgroundController.SwitchBackground(currentScene.backgroundImage.sprite);
             state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
             textBarController.Show();
