@@ -48,7 +48,7 @@ public class SwitchBackground : MonoBehaviour
     {
         if (animator != null)
         {
-            if (!isSwitched)
+            if (isSwitched)
             {
                 
                 return SWITCHFIRST_TRIGGER;
@@ -86,5 +86,29 @@ public class SwitchBackground : MonoBehaviour
             return image2.GetComponent<SpriteRenderer>().sprite;
         }
     }
-    
+    public void FalseAllAnimatorParametter()
+    {
+        Debug.Log(animator);
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.SetBool(parameter.name, false);
+        }
+    }
+    /// <summary>
+    /// Set false all Paramater except the selected parameter
+    /// </summary>
+    /// <param name="parameterTrue"></param>
+    public void FalseAllAnimatorParametter(string parameterTrue)
+    {
+        Debug.Log(animator);
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            if(parameter.name != parameterTrue)
+            {
+                animator.SetBool(parameter.name, false);
+            }
+            
+        }
+    }
+
 }

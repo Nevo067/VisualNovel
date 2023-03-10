@@ -114,8 +114,10 @@ public class BackgroundController : MonoBehaviour
     {
         if (switchBackground.GetImage() != sprite)
         {
-            FalseAllAnimatorParametter();
+            
             switchBackground.SwitchImage(sprite);
+            Debug.Log(switchBackground.GetCurrentSwitchNameAnimator());
+            switchBackground.FalseAllAnimatorParametter(switchBackground.GetCurrentSwitchNameAnimator());
         }
     }
 
