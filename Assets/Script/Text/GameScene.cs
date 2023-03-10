@@ -7,5 +7,5 @@ public class GameScene : ScriptableObject
 {
     public GameScene nextScene;
     public int background;
-    public Image backgroundImage;
+    public Sprite backgroundImage;
 }

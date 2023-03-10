@@ -7,6 +7,11 @@ public class BackgroundController : MonoBehaviour
     public List<GameObject> background;
     public SwitchBackground switchBackground;
 
+    private Animator animator;
+
+    private string TRIGGER_SHOW = "show";
+    private string TRIGGER_HIDE = "hide";
+
     private string ANIM_TRIGGER = "IsErase";
     private int indexZ;
     private int indexBackground;
@@ -20,6 +25,7 @@ public class BackgroundController : MonoBehaviour
         indexZ = 0;
         indexBackground = 0;
         switchBackground = this.GetComponent<SwitchBackground>();
+        animator = switchBackground.animator;
     }
 
     // Update is called once per frame
@@ -106,8 +112,25 @@ public class BackgroundController : MonoBehaviour
     //ReworkBackground
     public void SwitchBackground(Sprite sprite)
     {
-        switchBackground.SwitchImage(sprite);
+        if (switchBackground.GetImage() != sprite)
+        {
+            FalseAllAnimatorParametter();
+            switchBackground.SwitchImage(sprite);
+        }
     }
 
-    
+    public void Setup(Sprite sprite)
+    {
+        switchBackground.SetImage(sprite);
+    }
+    public void FalseAllAnimatorParametter()
+    {
+        Debug.Log(animator);
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.SetBool(parameter.name, false);
+        }
+    }
+
+
 }

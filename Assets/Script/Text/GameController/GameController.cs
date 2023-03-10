@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(1f);
             backgroundController.IndexBackground = index;
             */
-            backgroundController.SwitchBackground(currentScene.backgroundImage.sprite);
+            backgroundController.SwitchBackground(currentScene.backgroundImage);
             state = State.ANIMATE;
             yield return new WaitForSeconds(1f);
             textBarController.Show();

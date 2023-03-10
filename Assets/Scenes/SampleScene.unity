@@ -173,8 +173,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1381911894}
   - {fileID: 140351586}
+  - {fileID: 1381911894}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,7 +295,6 @@ GameObject:
   m_Component:
   - component: {fileID: 140351586}
   - component: {fileID: 140351588}
-  - component: {fileID: 140351587}
   m_Layer: 0
   m_Name: dark room, bedroom ,{  medieval }, large room, prison, desk,  s-3686174534
   m_TagString: Untagged
@@ -316,29 +315,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 53819288}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &140351587
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140351585}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b29767bec4d090443bc13113ae48fc09, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &140351588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -379,9 +357,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1823df98e88e0cf40b69cff8f1c6d18c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1142,7 +1120,7 @@ MonoBehaviour:
   parent: {fileID: 1442023057}
   animator: {fileID: 1674065812}
   sentenceIndex: 0
-  currentScene: {fileID: 11400000, guid: 39475ff493d1de7479d8fe323e2d6ee8, type: 2}
+  currentScene: {fileID: 11400000, guid: 03c46f384e8d509408a32438126a282c, type: 2}
   currentSpeaker: {fileID: 0}
   spritesPrefabs: {fileID: 6295964675224243326, guid: d6b8d9af353bd7446bf9bde032eb7946, type: 3}
   HIDE_TRIGGER: IsHide
@@ -1519,7 +1497,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1381911894}
   - component: {fileID: 1381911896}
-  - component: {fileID: 1381911895}
   m_Layer: 0
   m_Name: dark room, { medieval }, large room, prison, dark stone wall, large door,
     long c s-4128635609
@@ -1537,33 +1514,12 @@ Transform:
   m_GameObject: {fileID: 1381911893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -418.03, y: -205.17, z: 0}
-  m_LocalScale: {x: 3.75403, y: 3.0391998, z: 1}
+  m_LocalScale: {x: 3.7540302, y: 3.0391998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 53819288}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1381911895
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381911893}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b29767bec4d090443bc13113ae48fc09, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1381911896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2091,6 +2047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801112170}
   - component: {fileID: 1801112171}
+  - component: {fileID: 1801112172}
   m_Layer: 0
   m_Name: BackgroundController
   m_TagString: Untagged
@@ -2129,7 +2086,23 @@ MonoBehaviour:
   - {fileID: 1464952030}
   - {fileID: 82678789}
   - {fileID: 2016434128}
-  switchBackground: {fileID: 0}
+  switchBackground: {fileID: 1801112172}
+--- !u!114 &1801112172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801112169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33823baed46ab4ab3451364e7b58ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSwitched: 0
+  image1: {fileID: 140351585}
+  image2: {fileID: 1381911893}
+  animator: {fileID: 53819287}
 --- !u!1 &1910004572
 GameObject:
   m_ObjectHideFlags: 0

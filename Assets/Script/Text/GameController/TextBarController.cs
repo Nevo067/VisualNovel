@@ -34,8 +34,9 @@ public class TextBarController : MonoBehaviour
         sprites = new Dictionary<Speaker, SpriteController>();
         Debug.Log(sprites);
         animator = bar.GetComponent<Animator>();
+        sentenceIndex = 0;
 
-        
+
     }
 
     // Update is called once per frame

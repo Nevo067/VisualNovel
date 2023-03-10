@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aed936e9d8401f044be0551ca1360dd4, type: 3}
-  m_Name: BeginningTest
+  m_Name: NewStoryScene
   m_EditorClassIdentifier: 
-  nextScene: {fileID: 11400000, guid: 7d686146f5b7beb41a3856beb8c4e5c8, type: 2}
+  nextScene: {fileID: 0}
   background: 0
-  listSentence:
-  - speaker: {fileID: 11400000, guid: 7762bf2d8edbafc4e99fbce8952a7bbe, type: 2}
-    text: Bonjour Bienvenue dans mon jeu
+  backgroundImage: {fileID: 0}
+  listSentence: []

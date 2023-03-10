@@ -10,24 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aed936e9d8401f044be0551ca1360dd4, type: 3}
-  m_Name: Test
+  m_Name: B1
   m_EditorClassIdentifier: 
-  nextScene: {fileID: 11400000, guid: 07c01b07128936e42a1f660478acb30a, type: 2}
+  nextScene: {fileID: 11400000, guid: 2e979744b4a150d4cafd8c2e013618d4, type: 2}
   background: 0
+  backgroundImage: {fileID: 21300000, guid: 1823df98e88e0cf40b69cff8f1c6d18c, type: 3}
   listSentence:
   - speaker: {fileID: 11400000, guid: a660028294a09344eab44be8ce18be78, type: 2}
-    text: Bonjour Je m'appelle Mizu
-    actions:
-    - speaker: {fileID: 11400000, guid: a660028294a09344eab44be8ce18be78, type: 2}
-      indexSprite: 0
-      coords: {x: 0, y: 0}
-      type: 1
-      moveSpeed: 0
+    text: Testy 1
+    actions: []
   - speaker: {fileID: 11400000, guid: a660028294a09344eab44be8ce18be78, type: 2}
-    text: Comment aller Vous
-    actions:
-    - speaker: {fileID: 11400000, guid: a660028294a09344eab44be8ce18be78, type: 2}
-      indexSprite: 0
-      coords: {x: 0, y: 0}
-      type: 3
-      moveSpeed: 0
+    text: Testy 2
+    actions: []
